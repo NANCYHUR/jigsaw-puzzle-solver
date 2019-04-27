@@ -14,9 +14,9 @@ Feel free to explore and add anything you want.
 Here are some meeting conclusions from 24/4 (Wed week 7).
 
 - preparation: choose and print an image, crop by hand, take photos
-![alt text](bin/step1.png=250px "step 1")
+![](bin/step1.png =250x)
 - pre-processing: crop, resize, equalisation (if needed), corner detection (if needed)
-![alt text](bin/step2.png=250px "step 2")
+![](bin/step2.png =250x)
 - **matching: compute similarities, match them vertically, then horizontally**
-![alt text](bin/step3.1.png=250px "step 3")
-![alt text](bin/step3.2.png=250px "step 3")
+![](bin/step3.1.png =250x)
+![](bin/step3.2.png =250x)
