@@ -1,5 +1,4 @@
-# ENGN4528 project
-# Jigsaw Puzzle Solver
+# ENGN4528 project - Jigsaw Puzzle Solver
 
 ## To start
 Hi there!
