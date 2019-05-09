@@ -7,7 +7,7 @@
 % ---
 
 
-%Part 2 Using the Jigswa solver;
+%Part 2 Using the Jigsaw solver;
 % ---
 % ---
 % ---
