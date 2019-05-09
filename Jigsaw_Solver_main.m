@@ -1,7 +1,7 @@
 %Now we start to fix the Jigsaw problem
 
-%Part 1 processing the image;
-% ---
+%Part 1 Processing the image;
+% --- 
 % ---
 % ---
 % ---
