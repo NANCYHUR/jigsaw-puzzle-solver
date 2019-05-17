@@ -1,6 +1,6 @@
 # ENGN4528 project - Jigsaw Puzzle Solver
 
-## To start
+## TO START
 Hi there!
 
 This is the initial commit of the project. Let's use this ReadMe file as a notice board.
@@ -8,7 +8,7 @@ This is the initial commit of the project. Let's use this ReadMe file as a notic
 Project milestones and issues have been updated.
 Feel free to explore and add anything you want.
 
-## algorithm based on paper
+## ALGORITHM BASED ON PAPER
 [Robust Solvers for Square Jigsaw Puzzles]
 
 1. combine MGC and SSD
@@ -32,7 +32,7 @@ Feel free to explore and add anything you want.
 - **wMGC**
 <img src="bin/formula5.png" alt="drawing" width="400"/>
 
-## basic skeleton
+## BASIC SKELETON
 Here are some meeting conclusions from 24/4 (Wed week 7).
 
 - preparation: choose and print an image, crop by hand, take photos
