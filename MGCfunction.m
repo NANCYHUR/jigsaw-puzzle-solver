@@ -21,12 +21,12 @@ g_2 = vector_2(:,2);
 b_2 = vector_2(:,3);
 
 % compute the average color difference of each channel
-color_diff_r_1 = sum(r_1(:len-1)-r_1(2:))/(len-1);
-color_diff_g_1 = sum(g_1(:len-1)-g_1(2:))/(len-1);
-color_diff_b_1 = sum(b_1(:len-1)-b_1(2:))/(len-1);
-color_diff_r_2 = sum(r_2(:len-1)-r_2(2:))/(len-1);
-color_diff_g_2 = sum(g_2(:len-1)-g_2(2:))/(len-1);
-color_diff_b_2 = sum(b_2(:len-1)-b_2(2:))/(len-1);
+color_diff_r_1 = sum(r_1(1:len-1)-r_1(2:len))/(len-1);
+color_diff_g_1 = sum(g_1(1:len-1)-g_1(2:len))/(len-1);
+color_diff_b_1 = sum(b_1(1:len-1)-b_1(2:len))/(len-1);
+color_diff_r_2 = sum(r_2(1:len-1)-r_2(2:len))/(len-1);
+color_diff_g_2 = sum(g_2(1:len-1)-g_2(2:len))/(len-1);
+color_diff_b_2 = sum(b_2(1:len-1)-b_2(2:len))/(len-1);
 
 % covariance matrices from average color differences
 
