@@ -12,15 +12,16 @@ Feel free to explore and add anything you want.
 [Robust Solvers for Square Jigsaw Puzzles]
 
 1. combine MGC and SSD
-<img src="bin/formula1.png", alt="drawing" width="20"/>
-<img src="bin/formula2.png", alt="drawing" width="20"/>
-<img src="bin/formula3.png", alt="drawing" width="20"/>
-<img src="bin/formula4.png", alt="drawing" width="20"/>
+<img src="bin/formula1.png" alt="drawing" width="500"/>
+<img src="bin/formula2.png" alt="drawing" width="500"/>
+<img src="bin/formula3.png" alt="drawing" width="500"/>
+<img src="bin/formula4.png" alt="drawing" width="500"/>
+
 2. normalize compatibility matrix
 3. treat normalized MGC scores as a complete bipartite graph
 4. find optimal matching by Hungarian algorithm
 5. for each pair, take either MGC or M+S score according to the rule
-<img src="bin/formula5.png", alt="drawing" width="20"/>
+<img src="bin/formula5.png" alt="drawing" width="20"/>
 6. make sure to compute all orientation arrangements in the above steps
 
 
