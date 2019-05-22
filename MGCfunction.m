@@ -45,14 +45,12 @@ G_12 = double([color_diff_r, color_diff_g, color_diff_b]);
 G_21 = -G_12;
 
 % dissimilarity score from (1 to 2) and (2 to 1)
-D_12 = sum(sum((G_12-all_color_diff_avg(1:3)) / s1 * (G_12-all_color_diff_avg(1:3))'));
-D_21 = sum(sum((G_21-all_color_diff_avg(4:6)) / s2 * (G_21-all_color_diff_avg(4:6))'));
-% D_12 = 0;
-% D_21 = 0;
-% for i = 1:len
-%     D_12 = D_12+(G_12(i,:)-all_color_diff_avg(1:3))/s1*(G_12(i,:)-all_color_diff_avg(1:3))';
-%     D_21 = D_21+(G_21(i,:)-all_color_diff_avg(4:6))/s2*(G_21(i,:)-all_color_diff_avg(4:6))';
-% end
+D_12 = 0;
+D_21 = 0;
+for i = 1:len
+    D_12 = D_12+(G_12(i,:)-all_color_diff_avg(1:3))/s1*(G_12(i,:)-all_color_diff_avg(1:3))';
+    D_21 = D_21+(G_21(i,:)-all_color_diff_avg(4:6))/s2*(G_21(i,:)-all_color_diff_avg(4:6))';
+end
 
 % combine two scores to form MGC value
 mgc = D_12 + D_21;
