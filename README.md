@@ -8,6 +8,33 @@ This is the initial commit of the project. Let's use this ReadMe file as a notic
 Project milestones and issues have been updated.
 Feel free to explore and add anything you want.
 
+### Some quick guide on Git
+1. when you want to have a brand new copy from the server
+
+    `git clone https://gitlab.cecs.anu.edu.au/u6227591/engn4528-project.git`
+
+2. when you want to add a new file
+    
+    `git add <filename>` (e.g. `git add calibrate.m`)
+
+3. when you have made some changes and want to keep a log at this point (assume the files are added to git)
+ 
+    **commit** (locally) `git commit -am "some meaningful commit message to easily recognize later"`
+
+    **push** the commit(s) `git push origin master` or `git push`
+
+4. when your teammates say they pushed something
+
+    `git pull origin master` or `git pull`
+    
+5. when a conflict is potentially to happen (that is, your teammates pushed something while you are editting)
+    
+    **commit** first whatsoever `git commit "I made some changes about..."`
+
+    **pull** `git pull origin master` or `git pull`
+    This pull command will pull the change from your teammates and push your new commit(s) as the same time. Hopefully (as long as you are editting different parts of the project), the 'conflict' will be solved automatically (two versions will be merged).
+
+
 ## ALGORITHM BASED ON PAPER
 [Robust Solvers for Square Jigsaw Puzzles]
 
