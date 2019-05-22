@@ -20,6 +20,8 @@ function result = SSDfunction(vector_1, vector_2)
 % vector_2 = reshape(vec2,r,d);
 
 [r,d] = size(vector_1);
+vector_1 = double(vector_1);
+vector_2 = double(vector_2);
 result = 0;
 for i =1:d
     v1 = vector_1(:,i);
