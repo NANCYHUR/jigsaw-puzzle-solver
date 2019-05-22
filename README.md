@@ -34,6 +34,7 @@ Feel free to explore and add anything you want.
     **pull** `git pull origin master` or `git pull`
     This pull command will pull the change from your teammates and push your new commit(s) as the same time. Hopefully (as long as you are editting different parts of the project), the 'conflict' will be solved automatically (two versions will be merged).
 
+Some [recourses](https://cs.anu.edu.au/pages/courses/comp2100/lectures/campus_only/) on git (a lot, here is a link to a ANU course teaching Git) and a corresponding small [exercise](https://cs.anu.edu.au/pages/courses/comp2100/labs/campus_only/lab2/). (log in using your gitlab account)
 
 ## ALGORITHM BASED ON PAPER
 [Robust Solvers for Square Jigsaw Puzzles]
