@@ -40,11 +40,11 @@ Some [recourses](https://cs.anu.edu.au/pages/courses/comp2100/lectures/campus_on
 [Robust Solvers for Square Jigsaw Puzzles]
 
 1. combine MGC and SSD
-2. normalize compatibility matrix
-3. treat normalized MGC scores as a complete bipartite graph
-4. find optimal matching by [Hungarian algorithm](http://www.hungarianalgorithm.com/hungarianalgorithm.php)
+2. construct the compatibility matrix
+3. normalize compatibility matrix
+4. treat normalized MGC scores as a complete bipartite graph, find optimal matching by [Hungarian algorithm](http://www.hungarianalgorithm.com/hungarianalgorithm.php)
 5. for each pair, take either MGC or M+S score according to the rule
-6. make sure to compute all orientation arrangements in the above steps
+6. construct MST according to this [paper](https://ieeexplore.ieee.org/ielx5/6235193/6247647/06247699.pdf?tp=&arnumber=6247699&isnumber=6247647&ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2RvY3VtZW50LzYyNDc2OTk=) section 4.2
 
 ### formula
 - **DDS**
