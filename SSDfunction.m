@@ -1,4 +1,4 @@
-function result = SSDfunction(vector_1, vector_2)
+function ssd = SSDfunction(vector_1, vector_2)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 %%%%%%%%%%
@@ -22,13 +22,13 @@ function result = SSDfunction(vector_1, vector_2)
 [r,d] = size(vector_1);
 vector_1 = double(vector_1);
 vector_2 = double(vector_2);
-result = 0;
+ssd = 0;
 for i =1:d
     v1 = vector_1(:,i);
     v2 = vector_2(:,i); 
     for j = 1: r
         tmp = (v1(j)-v2(j))^2;
-        result = result + tmp;
+        ssd = ssd + tmp;
     end
 end
 

@@ -13,6 +13,6 @@ function ms = M_plus_S (vector_1, vector_2, q)
 
 m = MGCfunction(vector_1, vector_2);
 s = SSDfunction(vector_1, vector_2);
-ms = m * (s^(1/q))
+ms = m * (s^(1/q));
 
 end

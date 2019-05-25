@@ -8,6 +8,8 @@ function mgc = MGCfunction(vector_1, vector_2)
 % img_piece_1 = imread('processed image/1.png');
 % img_piece_2 = imread('processed image/2.png');
 % mgc_1l_2l = MGCfunction(squeeze(img_piece_1(:,1,:)), squeeze(img_piece_2(:,1,:)));
+vector_1 = double(vector_1);
+vector_2 = double(vector_2);
 
 % get length
 len = size(vector_1, 1);
