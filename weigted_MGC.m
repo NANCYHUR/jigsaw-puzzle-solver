@@ -1,15 +1,16 @@
 function M = weigted_MGC(mgc_matrix, ms_matrix)
 % weighted_MGC: calculates the selectively weighted MGC matrix
 % inputs (36*36*4): two compatibility matrices, computed by MGC and M+S
+%
 % example input compatibility matrix
 %    1                2   ...           35             36
-% 1  -                (LL,LR,RL,RR)     (LL,LR,RL,RR)  (LL,LR,RL,RR)
-% 2  (TT,TB,BT,BB)    -                 (LL,LR,RL,RR)  (LL,LR,RL,RR)
+% 1  0                (LL,LR,RL,RR)     (LL,LR,RL,RR)  (LL,LR,RL,RR)
+% 2  (TT,TB,BT,BB)    0                 (LL,LR,RL,RR)  (LL,LR,RL,RR)
 % .        ...
 % .                        ...
 % .                                         ...
-% 35 (TT,TB,BT,BB)    (TT,TB,BT,BB)     -              (LL,LR,RL,RR)
-% 36 (TT,TB,BT,BB)    (TT,TB,BT,BB)     (TT,TB,BT,BB)  -
+% 35 (TT,TB,BT,BB)    (TT,TB,BT,BB)     0              (LL,LR,RL,RR)
+% 36 (TT,TB,BT,BB)    (TT,TB,BT,BB)     (TT,TB,BT,BB)  0
 %
 % this function performs a Hungarian algorithm to find correspondences
 % between pairs, and update the MGC value into M+S when necessary
@@ -20,7 +21,8 @@ function M = weigted_MGC(mgc_matrix, ms_matrix)
 for i = 1:4     % 4 combinations as above
     mgc = mgc_matrix(:,:,i);
     mgc = triu(mgc) + triu(mgc,1)';  % mirror upper half to lower half
-    assignment = hungarian(mgc);
+    [assignment, ~] = munkres(mgc);
+    
 end
 
 % horizontal orientation (top-top, top-bottom, bottom-top, bottom-bottom)
