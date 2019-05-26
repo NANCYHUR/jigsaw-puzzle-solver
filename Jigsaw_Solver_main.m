@@ -2,33 +2,18 @@
 
 %%Part 1 Processing the image;
 % TODO shuffle the images later
-<<<<<<< HEAD
-all_images = uint8(zeros(75, 133, 3));
-=======
 all_images = uint8(zeros(36, 75, 133));
->>>>>>> 809cb54c1eeb450ea8f0a283724bb360aec0d2d3
 imagefiles = dir('processed image/*.png');
 for ii=1:36
     current_file_name = ['processed image/', imagefiles(ii).name];
     current_image = imread(current_file_name);
-<<<<<<< HEAD
     figure,imshow(current_image);
-    %current_image = rgb2gray(current_image);
-    all_images(ii, :, :, :) = current_image;
-end
-=======
     current_image = rgb2gray(current_image);
     all_images(ii, :, :, :) = current_image;
+    all_images(ii, :, :, :) = current_image;
 end
 
 %%Part 2 Using the Jigsaw solver;
->>>>>>> 809cb54c1eeb450ea8f0a283724bb360aec0d2d3
-
-%%Part 2 Using the Jigsaw solver;
-%%%%%% for comparison, we need to delete below later %%%%%%
-google_image = imread('google_image.jpg');
-imshow(google_image);
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 img_first = squeeze(all_images(1, :, :));
 all_images(1, :, :) = [];    % remove the chosen image
 img_long_piece = img_first;     % to be constructed longer
