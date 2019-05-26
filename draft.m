@@ -1,32 +1,40 @@
 %% load all the images
-all_images = uint8(zeros(145,216,3,36));
+size_c = 216;
+size_r = 145;
+all_images = uint8(zeros(size_r,size_c,3,36));
 imagefiles = dir('better_images/*.jpg');
+figure;     % display all small pieces
 for ii=1:36
     current_file_name = ['better_images/', imagefiles(ii).name];
     current_image = imread(current_file_name);
-    if size(current_image,1) ~= 145 || size(current_image,2) ~= 216
-        current_image = imresize(current_image,[145,216]);
+    if size(current_image,1) ~= size_r || size(current_image,2) ~= size_c
+        current_image = imresize(current_image,[size_r,size_c]);
         imwrite(current_image, current_file_name);
     end
+    subplot(6,6,ii), imshow(current_image);
     all_images( :, :, :, ii) = current_image;
 end
 
+%% TODO: suffle all the images (relocate & rotate)
+
+
 %% concat into 6 long pieces
-six_pieces = zeros(145, 216*6, 3, 6);
+six_pieces = zeros(size_r, size_c*6, 3, 6);
+figure;     % display all long pieces
 for n = 1:6
     img_first = squeeze(all_images(:, :, :,1));
     all_images(:, :, :,1) = [];    % remove the chosen image
     img_long_piece = img_first;     % to be constructed longer
 
-    while size(img_long_piece, 2) < 216*6
+    while size(img_long_piece, 2) < size_c*6
         dist = zeros(size(all_images, 4), 4);
 
         left_vec = squeeze(img_long_piece(:,1,:));
         right_vec = squeeze(img_long_piece(:, size(img_long_piece, 2),:));
 
         for i = 1:size(all_images, 4)
-            vec_i_l = reshape((all_images(:, 1, :, i)), 145, []);
-            vec_i_r = reshape(all_images(:, 216,:,i), 145, []);
+            vec_i_l = reshape((all_images(:, 1, :, i)), size_r, []);
+            vec_i_r = reshape(all_images(:, size_c,:,i), size_r, []);
             left_dist_i_1 = M_plus_S(left_vec, flip(vec_i_l,2),1);
             left_dist_i_2 = M_plus_S(left_vec, vec_i_r,1);
             right_dist_i_1 = M_plus_S(right_vec, vec_i_l,1);
@@ -61,14 +69,13 @@ for n = 1:6
             end
         end
     end
+    subplot(6,1,n), imshow(img_long_piece);
     six_pieces(:,:,:,n) = img_long_piece;
-%     figure;
-%     imshow(img_long_piece);
 end
 
 %% whole image
 whole_img = squeeze(six_pieces(:,:,:,1));
-while size(whole_img,1) < 145*6
+while size(whole_img,1) < size_r*6
     dist = zeros(size(six_pieces, 4), 4);
 
     top_vec = squeeze(whole_img(1,:,:));
@@ -113,4 +120,4 @@ while size(whole_img,1) < 145*6
 end
 
 whole_img = uint8(whole_img);
-imshow(whole_img);
+figure, imshow(whole_img);
