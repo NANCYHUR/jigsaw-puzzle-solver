@@ -9,7 +9,7 @@ function ms = M_plus_S (vector_1, vector_2, q)
 % example call:
 % img_piece_1 = imread('processed image/1.png');
 % img_piece_2 = imread('processed image/2.png');
-% mgc_1l_2l = ms(squeeze(img_piece_1(:,1,:)), squeeze(img_piece_2(:,1,:)));
+% mgc_1l_2l = ms(squeeze(img_piece_1(:,1,:)), squeeze(img_piece_2(:,1,:)), 3);
 
 m = MGCfunction(vector_1, vector_2);
 s = SSDfunction(vector_1, vector_2);

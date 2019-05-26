@@ -80,24 +80,24 @@ dMat(1:nRows,1:nCols) = costMat(validRow,validCol);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   STEP 1: Subtract the row minimum from each row.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-minR = min(dMat(dMat>0),[],2);
+minR = min(dMat,[],2);
 subtracted_mat = bsxfun(@minus, dMat, minR);
-minC = min(subtracted_mat(dMat>0));
+minC = min(subtracted_mat);
 
 %**************************************************************************  
 %   STEP 2: Find a zero of dMat. If there are no starred zeros in its
 %           column or row start the zero. Repeat for each zero
 %**************************************************************************
-zP = dMat == bsxfun(@plus, minC, minR);
-
+% zP = dMat == bsxfun(@plus, minC, minR);
+% 
+% starZ = zeros(n,1);
+% while any(zP(:))
+%     [r,c]=find(zP,1);
+%     starZ(r)=c;
+%     zP(r,:)=false;
+%     zP(:,c)=false;
+% end
 starZ = zeros(n,1);
-while any(zP(:))
-    [r,c]=find(zP,1);
-    starZ(r)=c;
-    zP(r,:)=false;
-    zP(:,c)=false;
-end
-
 while 1
 %**************************************************************************
 %   STEP 3: Cover each column with a starred zero. If all the columns are

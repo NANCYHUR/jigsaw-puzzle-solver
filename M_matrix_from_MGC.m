@@ -26,7 +26,7 @@ for i = 1:n
         
         % The disimilarity between the picture and itself is 0.
         if i==j
-        M_matrix(i,j,:) = 0;
+        M_matrix(i,j,:) = NaN;
         end
         
         % the top right part of the M_matrix
@@ -55,15 +55,8 @@ for i = 1:n
     end
 end
 %%
-for k = 1:4
-    for i = 1:n
-        for j = 1:n
-            if (M_matrix(i,j,k)>threshold || isnan(M_matrix(i,j,k))==1)
-                M_matrix(i,j,k) = 0;
-            end
-        end
-    end
-end
+M_matrix(M_matrix>threshold) = NaN;
+M_matrix(M_matrix<0) = NaN;
 % 
 % %%
 % a = M_matrix(:,:,1);
