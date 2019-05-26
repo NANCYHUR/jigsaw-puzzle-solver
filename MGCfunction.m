@@ -35,6 +35,11 @@ all_color_diff_avg = double(all_color_diff_avg);
 col_diff_1 = double([col_diff_r1, col_diff_g1, col_diff_b1]);
 col_diff_2 = double([col_diff_r2, col_diff_g2, col_diff_b2]);
 
+% add some dummy gradients
+dummy_gradients = [0 0 1; 0 1 0; 1 0 0; 1 0 1; 1 1 0; 0 1 1; 1 1 1];
+col_diff_1 = [col_diff_1; dummy_gradients];
+col_diff_2 = [col_diff_2; dummy_gradients];
+
 % covariance matrices from color differences
 s1 = cov(col_diff_1);
 s2 = cov(col_diff_2);
