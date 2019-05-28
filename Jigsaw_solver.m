@@ -19,27 +19,26 @@ first_img = imread(first_file);
 size_r = size(first_img,1);
 size_c = size(first_img,2);
 all_images = uint8(zeros(size_r,size_c,3,col_num*row_num));
-figure;     % display all small pieces
 for ii=1:size(imagefiles,1)
     current_file_name = [path, imagefiles(ii).name];
     current_image = imread(current_file_name);
-    subplot(row_num, col_num, ii), imshow(current_image);
     all_images( :, :, :, ii) = current_image;
 end
 
-%% TODO: shuffle all the images (relocate & rotate)
+%% shuffle all the images (relocate & rotate)
 top=row_num*col_num;
 images_temp = uint8(zeros(size_r,size_c,3,col_num*row_num));
 rand_idx = randperm(top);
+figure;
 for ii=1:size(imagefiles,1)
     num=rand_idx(ii);
     if(mod(num,5)==0)
         img = squeeze(all_images(:, :, :,ii));
         im_rot=imrotate(img,180);
+        subplot(row_num, col_num, ii), imshow(im_rot);
         all_images( :, :, :, ii)=im_rot;
-        figure, 
-        subplot(1,2,1), imshow(img);
-        subplot(1,2,2), imshow(im_rot);
+    else
+        subplot(row_num, col_num, ii), imshow(squeeze(all_images(:,:,:,num)));
     end
     images_temp( :, :, :, ii)=all_images( :, :, :, num);
 end
