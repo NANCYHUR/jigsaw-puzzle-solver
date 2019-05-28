@@ -27,7 +27,10 @@ for ii=1:size(imagefiles,1)
     all_images( :, :, :, ii) = current_image;
 end
 
-%% TODO: suffle all the images (relocate & rotate)
+%% TODO: suffle all the images (relocate)
+
+
+%% TODO: rotate some of the images
 
 
 %% concat into row_num long pieces
@@ -105,7 +108,6 @@ while size(whole_img,1) < size_r*row_num
         dist(i, 4) = bottom_dist_i_b;
     end
     
-    thresh_h = 1e+15;
     dist(dist>thresh_h) = NaN;
     dist(dist<=0) = NaN;
     if size(find(isnan(dist)),1)~=(size(dist,1)*size(dist,2))   % this matrix has valid values
