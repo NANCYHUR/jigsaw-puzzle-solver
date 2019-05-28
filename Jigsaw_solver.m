@@ -27,26 +27,23 @@ for ii=1:size(imagefiles,1)
     all_images( :, :, :, ii) = current_image;
 end
 
-%% TODO: shuffle all the images (relocate)
-
-
+%% TODO: shuffle all the images (relocate & rotate)
 top=row_num*col_num;
+images_temp = uint8(zeros(size_r,size_c,3,col_num*row_num));
+rand_idx = randperm(top);
 for ii=1:size(imagefiles,1)
-    num=randi([1,top]);
+    num=rand_idx(ii);
     if(mod(num,5)==0)
         img = squeeze(all_images(:, :, :,ii));
         im_rot=imrotate(img,180);
         all_images( :, :, :, ii)=im_rot;
+        figure, 
+        subplot(1,2,1), imshow(img);
+        subplot(1,2,2), imshow(im_rot);
     end
-    all_images( :, :, :, ii)=all_images( :, :, :, num);
+    images_temp( :, :, :, ii)=all_images( :, :, :, num);
 end
-
-
-
-
-
-%% TODO: rotate some of the images
-
+all_images = images_temp;
 
 %% concat into row_num long pieces
 long_pieces = zeros(size_r, size_c*col_num, 3, row_num);
@@ -65,10 +62,10 @@ for n = 1:row_num
         for i = 1:size(all_images, 4)
             vec_i_l = reshape((all_images(:, 1, :, i)), size_r, []);
             vec_i_r = reshape(all_images(:, size_c,:,i), size_r, []);
-            left_dist_i_1 = M_plus_S(left_vec, flip(vec_i_l,2),1);
+            left_dist_i_1 = M_plus_S(left_vec, flip(vec_i_l),1);
             left_dist_i_2 = M_plus_S(left_vec, vec_i_r,1);
             right_dist_i_1 = M_plus_S(right_vec, vec_i_l,1);
-            right_dist_i_2 = M_plus_S(right_vec, flip(vec_i_r,2),1);
+            right_dist_i_2 = M_plus_S(right_vec, flip(vec_i_r),1);
             dist(i, 1) = left_dist_i_1;
             dist(i, 2) = left_dist_i_2;
             dist(i, 3) = right_dist_i_1;
@@ -113,10 +110,10 @@ while size(whole_img,1) < size_r*row_num
     for i = 1:size(long_pieces, 4)
         vec_i_t = squeeze(long_pieces(1,:,:,i));
         vec_i_b = squeeze(long_pieces(size(long_pieces,1),:,:,i));
-        top_dist_i_t = M_plus_S(top_vec, flip(vec_i_t,2), 1);
+        top_dist_i_t = M_plus_S(top_vec, flip(vec_i_t), 1);
         top_dist_i_b = M_plus_S(top_vec, vec_i_b, 1);
         bottom_dist_i_t = M_plus_S(bottom_vec, vec_i_t, 1);
-        bottom_dist_i_b = M_plus_S(bottom_vec, flip(vec_i_b,2),1);
+        bottom_dist_i_b = M_plus_S(bottom_vec, flip(vec_i_b),1);
         dist(i, 1) = top_dist_i_t;
         dist(i, 2) = top_dist_i_b;
         dist(i, 3) = bottom_dist_i_t;

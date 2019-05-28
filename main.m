@@ -1,14 +1,26 @@
 %Now we start to fix the Jigsaw problem
 
-%%Part 1 load file path;
+%% 6*6 image
+tic;
+initime = cputime;
+time1   = clock;
+
 path = 'better_images/';
 imagefiles = dir([path, '*.jpg']);
-
-%%Part 2 Using the Jigsaw solver;
 whole_img = Jigsaw_solver(path, imagefiles, 6, 6, 1e+11, 1e+15);
 
-%%Part 3 Printing the result;
-% ---
-% ---
-% ---
-% ---
+fintime = cputime;
+elapsed = toc;
+time2   = clock;
+fprintf('TIC TOC: %g\n', elapsed);
+fprintf('CPUTIME: %g\n', fintime - initime);
+fprintf('CLOCK:   %g\n', etime(time2, time1));
+
+% %% 7*7 image
+% path = 'better_images/';
+% imagefiles = dir([path, '*.jpg']);
+% whole_img = Jigsaw_solver(path, imagefiles, 6, 6, 1e+11, 1e+15);
+
+
+
+%% 8*8 image
