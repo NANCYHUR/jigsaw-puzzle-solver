@@ -21,7 +21,7 @@ path = '7by7/';
 imagefiles = dir([path, '*.jpg']);
 whole_img = Jigsaw_solver(path, imagefiles, 7, 7, 1e+11, 1e+15);
 
-%% 8*8 image
+% %% 8*8 image
 % path = '8by8/';
 % imagefiles = dir([path, '*.jpg']);
-% whole_img = Jigsaw_solver(path, imagefiles, 7, 7, 1e+11, 1e+15);
+% whole_img = Jigsaw_solver(path, imagefiles, 8, 8, 1e+11, 1e+15);
