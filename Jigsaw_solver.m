@@ -18,7 +18,7 @@ first_file = [path, imagefiles(1).name];
 first_img = imread(first_file);
 size_r = size(first_img,1);
 size_c = size(first_img,2);
-all_images = uint8(zeros(size_r,size_c,3,36));
+all_images = uint8(zeros(size_r,size_c,3,col_num*row_num));
 figure;     % display all small pieces
 for ii=1:size(imagefiles,1)
     current_file_name = [path, imagefiles(ii).name];
@@ -27,7 +27,22 @@ for ii=1:size(imagefiles,1)
     all_images( :, :, :, ii) = current_image;
 end
 
-%% TODO: suffle all the images (relocate)
+%% TODO: shuffle all the images (relocate)
+
+
+top=row_num*col_num;
+for ii=1:size(imagefiles,1)
+    num=randi([1,top]);
+    if(mod(num,5)==0)
+        img = squeeze(all_images(:, :, :,ii));
+        im_rot=imrotate(img,180);
+        all_images( :, :, :, ii)=im_rot;
+    end
+    all_images( :, :, :, ii)=all_images( :, :, :, num);
+end
+
+
+
 
 
 %% TODO: rotate some of the images
