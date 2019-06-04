@@ -7,7 +7,7 @@ time1   = clock;
 
 path = '6by6/';
 imagefiles = dir([path, '*.jpg']);
-whole_img = Jigsaw_solver(path, imagefiles, 6, 6, 1e+11, 1e+15);
+whole_img = jigsaw_solver(path, imagefiles, 6, 6, 1e+11, 1e+15);
 
 fintime = cputime;
 elapsed = toc;
@@ -23,7 +23,7 @@ time1   = clock;
 
 path = '7by7/';
 imagefiles = dir([path, '*.jpg']);
-whole_img = Jigsaw_solver(path, imagefiles, 7, 7, 1e+11, 1e+15);
+whole_img = jigsaw_solver(path, imagefiles, 7, 7, 1e+11, 1e+15);
 
 fintime = cputime;
 elapsed = toc;
@@ -39,7 +39,7 @@ time1   = clock;
 
 path = '8by8/';
 imagefiles = dir([path, '*.jpg']);
-whole_img = Jigsaw_solver(path, imagefiles, 8, 8, 1e+11, 1e+15);
+whole_img = jigsaw_solver(path, imagefiles, 8, 8, 1e+11, 1e+15);
 
 fintime = cputime;
 elapsed = toc;
